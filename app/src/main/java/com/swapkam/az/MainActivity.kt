@@ -92,25 +92,6 @@ class MainActivity : AppCompatActivity() {
                 ).show()
                 super.onReceivedError(view, errorCode, description, failingUrl)
             }
-
-            /*override fun onReceivedError(
-                view: WebView,
-                errorCode: Int,
-                description: String?,
-                failingUrl: String?
-            ) {
-                super.onReceivedError(view, errorCode, description, failingUrl)
-                view.loadUrl("about:blank")
-            }*/
-
-            /*override fun onReceivedError(
-                view: WebView?,
-                errorCode: Int,
-                description: String?,
-                failingUrl: String?
-            ) {
-                webView.loadUrl("file:///android_asset/myerrorpage.html")
-            }*/
         }
 
         val settings = webView.settings
