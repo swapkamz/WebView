@@ -28,12 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".authentication.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".authentication.RegisterActivity"
-            android:exported="false" />
+
     </application>
 
 </manifest>

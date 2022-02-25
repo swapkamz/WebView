@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.DownloadManager
 import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
@@ -16,11 +15,7 @@ import android.webkit.*
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.swapkam.az.authentication.LoginActivity
-import com.swapkam.az.authentication.SharedPrefManager
-import com.swapkam.az.authentication.User
 import com.swapkam.az.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,15 +27,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        /*Shared PrefManager*/
-        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
-            val user: User = SharedPrefManager.getInstance(this).getUser()
-        } else {
-            val intent = Intent(this@MainActivity, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
 
         val webView: WebView = binding.webView
         val progressBar: ProgressBar = binding.progressbar
@@ -55,16 +41,6 @@ class MainActivity : AppCompatActivity() {
                 view?.loadUrl(url)
                 return super.shouldOverrideUrlLoading(view, request)
             }
-            /*override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                if (Uri.parse(url).host == getString(R.string.webURL)) {
-                    return false
-                }
-                // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
-                Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
-                    startActivity(this)
-                }
-                return true
-            }*/
 
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 progressBar.visibility = View.VISIBLE

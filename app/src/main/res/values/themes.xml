@@ -21,8 +21,8 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="progressBar" parent="@style/Theme.AppCompat">
-        <item name="colorPrimary">@color/purple_500</item>
+    <style name="progressBar" parent="@style/ThemeOverlay.MaterialComponents">
+        <item name="colorSecondary">@color/black</item>
     </style>
 
     <style name="Theme.AZ.AppBarOverlay" parent="ThemeOverlay.AppCompat.Light" />
